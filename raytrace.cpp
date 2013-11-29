@@ -11,6 +11,8 @@
 #include "Vect.hpp"
 #include "Ray.hpp"
 #include "Camera.hpp"
+#include "Color.hpp"
+#include "Light.hpp"
 
 using namespace std;
 
@@ -99,6 +101,28 @@ int main ( int argc , char *argv[])
 	Vect X( 1 , 0 , 0 );
 	Vect Y( 0 , 1 , 0 );
 	Vect Z( 0 , 0 , 1 );
+  
+
+	Vect look_at ( 0 , 0 , 0 ) ;
+	Vect campos( 3 , 1.5 , -4 ) ;
+	
+	Vect diff_btw ( campos.getVectX() - look_at.getVectX() ,
+					campos.getVectY() - look_at.getVectY() ,
+					campos.getVectZ() - look_at.getVectZ() );
+	Vect camdir = diff_btw.negtive().noralize();
+	Vect camright = Y.crossProduct( camdir ).noralize();
+	Vect camdown = camright.crossProduct( camdir );
+
+	Camera scene_cam ( campos , camdir , camright , camdown );
+
+	Color white_light( 1.0 , 1.0, 1.0 , 0.0 );
+	Color pretty_green( 0.5 , 1.0 , 0.5 , 0.3 );
+	Color gray( 0.5, 0.5 , 0.5 , 0 );
+	Color black( 0.0 , 0.0 , 0.0 , 0.0 ) ;
+
+	Vect light_positon(-7 , 10 , -10 );
+	Light scene_light( light_positon , white_light );
+	
 	
 	for (int i = 0; i < width; ++i)
 	{
