@@ -8,9 +8,11 @@
 #include <math.h>
 #include <stdio.h>
 
-#include "Vect.h"
-using namespace std;
+#include "Vect.hpp"
+#include "Ray.hpp"
+#include "Camera.hpp"
 
+using namespace std;
 
 struct RGBType {
 	 double r ;
@@ -94,6 +96,10 @@ int main ( int argc , char *argv[])
 	RGBType *pixels = new RGBType[ n ];
 	int curone ;
 
+	Vect X( 1 , 0 , 0 );
+	Vect Y( 0 , 1 , 0 );
+	Vect Z( 0 , 0 , 1 );
+	
 	for (int i = 0; i < width; ++i)
 	{
 		for (int j= 0 ; j < height ; ++j )
