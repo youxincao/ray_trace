@@ -1,24 +1,25 @@
 #include <iostream>
- #include <fstream>
- #include <sstream>
- #include <vector>
- #include <string>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <string>
 
- #include <stdlib.h>
- #include <math.h>
- #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <stdio.h>
 
- using namespace std;
+#include "Vect.h"
+using namespace std;
 
 
- struct RGBType {
+struct RGBType {
 	 double r ;
 	 double g ;
 	 double b ;
- } ;
+} ;
 
- void savebmp ( const char *filename , int w , int h , int dpi , RGBType *data )
- {
+void savebmp ( const char *filename , int w , int h , int dpi , RGBType *data )
+{
 	 FILE * f ;
 	 int k = w*h ;
 	 int s = 4*k ;
@@ -79,7 +80,7 @@
 	 }
 	 fclose( f );
 
- }
+}
 
 int main ( int argc , char *argv[])
 {
@@ -89,7 +90,7 @@ int main ( int argc , char *argv[])
 	int width = 640 ;
 	int height = 480 ;
 	int n = width *height ;
-
+   
 	RGBType *pixels = new RGBType[ n ];
 	int curone ;
 
