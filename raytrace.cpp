@@ -81,30 +81,31 @@
 
  }
 
- int main ( int argc , char *argv[])
- {
-	 cout << "rending...." << endl ;
+int main ( int argc , char *argv[])
+{
+	cout << "rending...." << endl ;
 
-	 int dpi = 72 ;
-	 int width = 640 ;
-	 int height = 480 ;
-	 int n = width *height ;
+	int dpi = 72 ;
+	int width = 640 ;
+	int height = 480 ;
+	int n = width *height ;
 
-	 RGBType *pixels = new RGBType[ n ];
-	 int curone ;
+	RGBType *pixels = new RGBType[ n ];
+	int curone ;
 
-	 for (int i = 0; i < width; ++i)
-	 {
-		 for (int j= 0 ; j < height ; ++j )
-		 {
-			 curone = j * width + i ;
+	for (int i = 0; i < width; ++i)
+	{
+		for (int j= 0 ; j < height ; ++j )
+		{
+			curone = j * width + i ;
 
-			 pixels[curone].r = 23 ;
-			 pixels[curone].g = 222 ;
-			 pixels[curone].b = 10 ; 
-		 }
-	 }
+			pixels[curone].r = 23 ;
+			pixels[curone].g = 222 ;
+			pixels[curone].b = 10 ; 
+		}
+	}
 
-	 savebmp( "sceen.bmp" , width , height , dpi , pixels );
+	savebmp( "sceen.bmp" , width , height , dpi , pixels );
+	delete [] pixels ; 
 	return 0 ; 
 } 

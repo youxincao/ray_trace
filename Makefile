@@ -8,5 +8,5 @@ all : raytrace
 raytrace : $(OBJ)
 	$(CC) -Wall $(CFLAGS) -o $@ $^
 
-.PHONY : clean 
+clean :
 	rm -f *.o raytrace
